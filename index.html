@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+        <meta name="description" content="A graphical editor for the Soaroma SAC Minecraft anti-cheat plugin." />
+        <meta name="author" content="nethe550" />
+
+        <title>Soaroma SAC | Configuration Editor</title>
+        <link rel="stylesheet" href="./src/css/index.css" />
+        <link rel="stylesheet" href="./src/css/scrollbars.css" />
+        <link rel="stylesheet" href="./src/css/editor.css" />
+    </head>
+    <body>
+
+        <div id="upload-modal-wrapper">
+            
+            <div id="upload-modal">
+    
+                <div id="modal-content">
+    
+                    <h2>Upload</h2>
+                    <label>File: </label><input type="file" id="upload-input" />
+                    <br />
+                    <br />
+                    <button class="generic-button" id="cancel-upload">Cancel</button>
+    
+                </div>
+    
+            </div>
+
+        </div>
+
+        <header id="page-header">
+            <span id="page-header-title">Soaroma SAC | Configuration Editor</span>
+            <code style="font-size:0.75em;margin-left:2em">SAC v1.0.38 | Editor v0.0.1</code>
+        </header>
+
+        <div id="beta-flag">
+            <span>BETA</span>
+        </div>
+
+        <div id="sidebar">
+
+            <ul id="sidebar-pages">
+
+                <li class="sidebar-item-divider">
+                    <span class="sidebar-section-divider">File</span>
+                </li>
+
+                <li class="sidebar-item">
+                    <button class="sidebar-button" id="upload" title="Upload a configuration to edit.">Upload</button>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-button" id="export" title="Export the current configuration." href="" download="config.yml">Export</a>
+                </li>
+
+                <li class="sidebar-item-divider">
+                    <span class="sidebar-section-divider">Configs</span>
+                </li>
+
+                <li class="sidebar-item">
+                    <button class="sidebar-button" id="default-config" title="The default configuration.">Default</button>
+                </li>
+
+            </ul>
+
+            <a id="github" title="Soarama SAC Configuration Editor on Github.com" href="https://github.com/nethe550/soaroma-sac-confgui">
+                <img src="./src/css/github.png" width="24" height="24" alt="Github" />
+            </a>
+
+        </div>
+
+        <div id="content">
+
+            <div id="page-nav">
+                <button class="page-nav-button" id="open-page-home">Home</button>
+                <button class="page-nav-button" id="open-page-ide">IDE</button>
+                <button class="page-nav-button" id="open-page-editor">Editor</button>
+            </div>
+
+            <div class="page" id="home-page">
+
+                <span class="page-header-title">Home</span>
+                <hr />
+
+                <section class="page-section">
+
+                    <div id="home-info">
+                        <p>
+                            To begin, upload a <a href="javascript:if (window['config-manager']) window['config-manager'].openModal()">file</a>.
+                        </p>
+                    </div>
+
+                </section>
+
+            </div>
+
+            <div class="page" id="ide-page" style="display:none">
+
+                <span class="page-header-title">IDE</span>
+                <hr />
+                
+                <div id="ide-editor"></div>
+
+            </div>
+
+            <div class="page" id="editor-page" style="display:none">
+
+                <span class="page-header-title">Editor</span>
+                <hr />
+
+                <div id="editor-controls"></div>
+
+            </div>
+
+        </div>
+
+        <script src="./src/js/dist/jquery-3.6.0.min.js"></script>
+        <script src="./src/ace/ace-builds/src-noconflict/ace.js" charset="utf-8"></script>
+        <script src="./src/js/dist/js-yaml.js"></script>
+        <script src="./src/js/EditorControlGenerator.js"></script>
+        <script src="./src/js/EditorConfigInfo.js"></script>
+        <script src="./src/js/PageManager.js"></script>
+        <script src="./src/js/ConfigManager.js"></script>
+        <script>
+
+            /* IDE Editor */
+            const ide_editor = ace.edit('ide-editor');
+            ide_editor.setTheme('ace/theme/twilight');
+            ide_editor.session.setMode('ace/mode/yaml');
+            ide_editor.resize();
+            window.addEventListener('resize', () => ide_editor.resize());
+
+            /* Upload Modal */
+            const modal = document.getElementById('upload-modal-wrapper');
+            const modal_upload = document.getElementById('upload-input');
+            const modal_cancel = document.getElementById('cancel-upload');
+
+            /* Page Manager */
+            const page_manager = new PageManager(['home', 'ide', 'editor']);
+
+            /* Configuration Manager */
+            window['config-manager'] = new ConfigManager(
+                ide_editor, 
+                modal, 
+                modal_upload,
+                modal_cancel,
+                page_manager,
+                {
+                    upload: document.getElementById('upload'),
+                    export: document.getElementById('export')
+                }
+            );
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,402 @@
+:root {
+
+    --editor-section-background: rgb(65,65,75);
+    --editor-section-padding: 1em;
+    --editor-section-margin: 2em;
+    --editor-section-width: calc(100% - var(--editor-section-padding) * 2 - var(--editor-section-margin) * 2);
+
+    --editor-control-wrapper-background: rgba(65,65,75,0);
+    --editor-control-wrapper-hover-background: rgba(75,75,85,1);
+    --editor-control-wrapper-padding: 1em;
+    --editor-control-wrapper-width: calc(100% - var(--editor-control-wrapper-padding) * 2);
+
+    --description-font-color: rgb(200,200,200);
+
+    --checkbox-background: rgb(45,45,55);
+    --number-background: rgb(45,45,55);
+
+    --dropdown-background: rgb(45,45,55);
+
+}
+
+code {
+
+    background-color: rgb(25,25,35);
+
+    color: rgb(255,200,128);
+
+    border-radius: 6px;
+
+    padding: 0.25em 0.5em;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    word-wrap: nowrap;
+    white-space: nowrap;
+
+}
+
+.editor-section {
+
+    background: var(--editor-section-background);
+
+    padding: var(--editor-section-padding);
+
+    margin: var(--editor-section-margin);
+
+    width: var(--editor-section-width);
+
+    border-radius: 6px;
+
+    box-shadow: var(--se-shadow);
+    -webkit-box-shadow: var(--se-shadow);
+    /* Firefox */
+    -moz-box-shadow: var(--se-shadow);
+
+}
+
+.editor-section-title {
+
+    font-size: 1.5em;
+
+    font-weight: 500;
+
+    display: block;
+
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+
+    width: 100%;
+
+}
+
+.editor-section-title-bar {
+
+    width: calc(100% + var(--editor-section-padding) * 2);
+
+    transform: translateX(calc(var(--editor-section-padding) * -1));
+
+    padding-bottom: 0.75em;
+
+    box-shadow: var(--s-shadow);
+    -webkit-box-shadow: var(--s-shadow);
+    /* Firefox */
+    -moz-box-shadow: var(--s-shadow);
+
+}
+
+.editor-control-wrapper {
+
+    background-color: var(--editor-control-wrapper-background);
+
+    padding: var(--editor-control-wrapper-padding);
+
+    width: var(--editor-control-wrapper-width);
+
+    border-bottom: var(--border);
+
+}
+
+.editor-control-input-wrapper {
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5em;
+
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    margin-right: 2em;
+
+}
+
+.editor-label {
+
+    font-weight: 600;
+
+    display: inline-block;
+
+    margin: auto 0.25em;
+
+}
+
+.editor-label:hover {
+
+    text-decoration: underline;
+    
+    text-decoration-color: var(--accent-color);
+
+}
+
+.editor-description {
+
+    color: var(--description-font-color);
+
+    font-style: italic;
+
+    font-size: 0.9em;
+
+    margin-left: 1em;
+
+    max-width: 600px;
+
+    display: block;
+
+}
+
+.editor-checkbox, .editor-number, .editor-text {
+
+    display: block;
+
+    justify-self: flex-end;
+
+}
+
+.editor-checkbox {
+
+    appearance: none;
+    -webkit-appearance: none;
+    /* Firefox */
+    -moz-appearance: none;
+
+    background: var(--checkbox-background);
+
+    margin: 0;
+
+    font: inherit;
+    color: currentColor;
+
+    width: 20px;
+    height: 20px;
+
+    border: var(--border);
+    border-radius: 6px;
+
+    display: inline-grid;
+
+    place-content: center;
+
+    outline: none;
+
+    transition: border 0.125s ease-in-out;
+
+}
+
+.editor-checkbox:hover {
+
+    border: var(--border-thickness) solid var(--font-color);
+    
+}
+
+.editor-checkbox::before {
+
+    content: "";
+    
+    width: 0.75em;
+    height: 0.75em;
+
+    transform: scale(0);
+
+    transition: 0.125s transform ease-in-out;
+
+    border-radius: 3px;
+
+    box-shadow: inset 1em 1em var(--accent-color);
+
+    /* High Contrast Mode */
+    background-color: CanvasText;
+
+}
+
+.editor-checkbox:checked::before {
+
+    transform: scale(1);
+
+}
+
+.editor-number {
+
+    text-align: right;
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+    color: var(--font-color);
+
+    width: 40%;
+    max-width: 30%;
+    
+    background: var(--number-background);
+
+    border: var(--border);
+    border-radius: 6px;
+
+    outline: none;
+
+    transition: border 0.125s ease-in-out;
+
+    padding: 0.25em 0.5em;
+
+    /* Firefox */
+    -moz-appearance: textfield;
+
+}
+
+.editor-number:focus {
+
+    border: 1px solid var(--font-color);
+
+}
+
+.editor-number::-webkit-inner-spin-button, .editor-number::-webkit-outer-spin-button {
+
+    margin: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+    /* Firefox */
+    -moz-appearance: none;
+
+}
+
+.editor-text {
+
+    text-align: right;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    color: var(--font-color);
+
+    width: 40%;
+    max-width: 50%;
+
+    background: var(--text-background);
+
+    border: var(--border);
+    border-radius: 6px;
+
+    outline: none;
+
+    transition: border 0.125s ease-in-out;
+
+    padding: 0.25em 0.5em;
+
+    resize: both;
+
+}
+
+.editor-number, .editor-text {
+
+    flex-grow: 1;
+
+}
+
+.editor-optional {
+
+    display: block;
+
+    font-weight: bold;
+
+    color: var(--accent-color);
+
+}
+
+.editor-dependent {
+
+    display: block;
+
+    font-weight: bold;
+    
+    color: rgb(255,150,64);;
+
+}
+
+.editor-dropdown-wrapper {
+
+    background: var(--dropdown-background);
+
+    height: fit-content;
+
+    margin: 2em auto;
+
+    border: var(--border);
+    border-radius: 6px;
+    
+    box-shadow: var(--se-shadow);
+    -webkit-box-shadow: var(--se-shadow);
+
+    /* Firefox */
+    -moz-box-shadow: var(--se-shadow);
+    height: -moz-fit-content;
+
+}
+
+.editor-dropdown-title-bar, .editor-section-title-bar {
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: var(--border);
+
+    order: 1;
+
+}
+
+.editor-dropdown-title {
+
+    font-size: 1.25em;
+    font-weight: 500;
+
+    margin: 1em;
+
+}
+
+.editor-dropdown-control, .editor-section-control {
+
+    min-width: 24px;
+    min-height: 24px;
+
+    border: none;
+    border-radius: 6px;
+
+    margin: 0.75em;
+    margin-right: 2em;
+
+    filter: invert(1);
+
+    transition: filter 0.125s ease-in-out;
+
+}
+
+.editor-dropdown-control:hover {
+
+    filter: invert(0.75);
+
+    transform: scale(1);
+
+    transition: transform 0.125s ease-in-out;
+
+}
+
+.editor-dropdown-control:active {
+
+    filter: invert(0.5);
+
+    transform: scale(0.95);
+
+}
+
+.editor-dropdown-content {
+
+    order: 2;
+
+    width: 100%;
+
+    display: none;
+
+}
