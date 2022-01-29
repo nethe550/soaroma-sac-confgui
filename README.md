@@ -4,7 +4,7 @@ A graphical configuration editor for the Soaroma SAC Minecraft anti-cheat plugin
 ***This project is still in early beta, expect a few bugs and missing features!***
 
 ### Current Versions:
-- SAC: `1.0.38`
+- SAC: `1.0.46`
 - Editor: `0.0.2`
 
 ## Usage
