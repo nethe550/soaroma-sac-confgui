@@ -1,7 +1,7 @@
 # ********************************************** #
 #                                                #
 #    -- SoaromaSAC Configuration File --         #
-#           -- Version 1.0.38 --                 #
+#           -- Version 1.0.39 --                 #
 #                                                #
 # ********************************************** #
 
@@ -35,7 +35,7 @@ flag-system:
     
     # Cancels event if a violation occurs, NOTE If this variable is set to false, the anti-cheat detection system becomes incredibly fast at detecting cheats
     # As when set to true, it becomes less sensitive (default: true)
-    cancelEventIfHacking: true
+    cancelEventIfHacking: false
     
     # Enables violation kicks
     autoViolationKick: true
@@ -63,10 +63,11 @@ flag-system:
     clearAllViolationsTimer: true
 
     # Timer for when to clear any violations after X amount of time | time is in seconds : linked with clearAllViolationsTimer
-    clearAllViolationsTimerNum: 3600.0
+    clearAllViolationsTimerNum: 60.0
     
     # Enable warning the flagged player for cheating (default: false)
     warnFlaggedPlayer: false
+    
     # Enable auto ban. It will automatically ban players (default: false)
     enableAutoBan:
     
@@ -110,10 +111,10 @@ thresholders:
 spacedViolationMessages:
     # It sends a message to players with sac.notify each X amount of violations
     # If disabled, it will message players with sac.notify for each violation 
-    spacedViolationMessages: false
+    spacedViolationMessages: true
     
     # The number of messages occuring, every X amount of violations then send a message to all 
-    spacedViolationNotificationsNum: 4.0
+    spacedViolationNotificationsNum: 10.0
 
 # This are the GUI commands when you open it in game
 # You can adjust display glasses name and time in GUI
@@ -404,6 +405,7 @@ messages:
         - 'GhostHand'
         - 'Semi Prediction'
         - 'Auto Clicker'
+
                 
 item-attribute:
 
@@ -475,9 +477,9 @@ movement:
         
         checkSemiPredB: true
         
-        semiPredYUntilFlagB: 3.0
+        semiPredYUntilFlagB: 2.0
         
-        semiPredYLimiterB: 2.0
+        semiPredYLimiterB: 1.5
         
     # Check for flight
     checkFly:
@@ -784,13 +786,13 @@ combat:
         smartCombatMovementChangeSpeedKnockbackLM: 2.0
 
     # Check for critical hits
-    checkCriticals: true
+    checkCriticals: false
     
     
     checkVelocity:
         
         # Check velocity
-        checkVelocity: true
+        checkVelocity: false
         
         # Number of velocity flags before flagging velocity        
         velocityFlagsUntilFlagging: 2.0
@@ -802,7 +804,7 @@ combat:
     checkKillAura:
     
         # Check for killAura
-        checkKillAura: true
+        checkKillAura: false
     
         # Angular check for killAura, if exceeds angle then flag player : linked with killAura check
         killAuraAngleCheckA: 40.0
@@ -819,7 +821,7 @@ combat:
         checkKillAuraB: false
         
         # Experimental check
-        checkKillAuraC: true
+        checkKillAuraC: false
         
         # radius for killAuraC
         killAuraCFind: 1.6
@@ -828,17 +830,13 @@ combat:
         
         killAuraDMaxDis: 1.0
         
-        killAuraDUntilFlag: 2.0
-        
-        checkKillAuraE: true
-        
-        killAuraELimiter: 11.0
+        killAuraDUntilFlag: 3.0
         
     # Check for entity reach
     checkReach:
     
         # Check for entity reach
-        checkReach: true
+        checkReach: false
         
         # Entity reach max limit : Linked with entity reach check
         checkReachNumA: 4.7
@@ -851,7 +849,6 @@ combat:
         
         # Entity reach max limit when in creative: Linked with entity reach check
         checkReachNumCreativeB: 7.0
-
 # All Timer Checks
 timer-checks:
     # Check for regen : linked with checkIrregularEvent
@@ -902,7 +899,7 @@ interaction:
     checkAutoClicker:
     
         # It checks for auto clicker
-        checkAutoClickerA: true 
+        checkAutoClickerA: false
         
         # Clicks per second until getting flagged for auto clicker : linked with autoClicker check
         CPSUntilHackingA: 16.0
@@ -946,7 +943,7 @@ other:
     enableAPI: false
     
     # Specifies the config type
-    config-type: 'nevergonnagiveyouup'
+    config-type: 'secretmessageherekek'
     
     # When a report gets submitted, message all online admins
     enableReportBroadcastToAdmins: true
@@ -959,6 +956,7 @@ other:
     
     # Display PacketPlayInCustomPayload when a player joins
     enableModifiedClientBroadcast: false
+    
     
     checkBaritone:
     
@@ -1047,7 +1045,7 @@ other:
     checkGroundSpoof:
     
        # Check for ground spoofing
-       checkGroundSpoof: true
+       checkGroundSpoof: false
        
        # The number of flags consistently until flagging for groundSpoof, note keep this number above 2.0 to stop falses occuring
        checkGroundNumA: 4.0
@@ -1089,7 +1087,7 @@ other:
         checkServerTPS: false
 
         # If the servers TPS is lower than number, ignore all abnormal activity : linked with checkServerTPS
-        serverTPSTillIgnore: 18.0
+        serverTPSTillIgnore: 19.0
         
         # If this variable is true then it check if tps is LOWER than serverTPSTillIgnore and only check if its below serverTPSTillIgnore
         # otherwise ignore tps
@@ -1102,7 +1100,7 @@ other:
     
     
     # Ignore abnormal activites with 0 ping
-    ignoreZeroPing: false
+    ignoreZeroPing: true
     
     # Debug mode is when a violation occurs, and the check that is violated will display the configuration variable
     # that the player exceeded in chat, note that it messages every player what configuration variable

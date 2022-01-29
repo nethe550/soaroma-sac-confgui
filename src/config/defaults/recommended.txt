@@ -9,7 +9,7 @@
 # Don't change any configurations if you do not know what it does
 # If you have any questions, message developer on discord, usually a problem can be
 # fixed in a matter of seconds
-# main.yml is the anti-cheats configuration file!
+# main.yml is the anti-cheats configuration file! Not copy.yml! 
 # ===============================================================
  
 # =========================================================================
@@ -30,12 +30,13 @@ flag-system:
     # Enabling or disabling All checks. If false, the plugin will not check for any violations (default: true)
     enableAntiCheat: true
 
+
     # Disable anti-cheat for X amount of ticks upon join (20 = 1 second), Stops falses upon joining
-    disablerTimeOnJoin: 170.0
+    disablerTimeOnJoin: 170
     
     # Cancels event if a violation occurs, NOTE If this variable is set to false, the anti-cheat detection system becomes incredibly fast at detecting cheats
     # As when set to true, it becomes less sensitive (default: true)
-    cancelEventIfHacking: true
+    cancelEventIfHacking: false
     
     # Enables violation kicks
     autoViolationKick: true
@@ -46,15 +47,16 @@ flag-system:
     # Use this command for kicking if usage for auto kick is set to true
     usageKick: 'kick {player} Timed Out'
         
+        
     # The number of violations occuring before a kick occurs : linked with autoViolationKick
-    violationKickNumUntilKick: 50.0
+    violationKickNumUntilKick: 100.0
 
     # The lower the number the more frequent the teleport occurs when flagging, this is set to 5 so in case someone gets accidently false flagged
     # then they can still recover, HOWEVER if you decide to trust this anti-cheat with your life (me as the developer sure as hell doesn't) 
     # you can turn this down to 1 where it goes, "completely screw the people who flagged the anti-cheat"
     # OR the safest number is 2 if you want to go, "kinda screw people who flagged the anti-cheat"
     # anything about is playing it safe is >= 2
-    teleportSensitivity: 5.0
+    teleportSensitivity: 5
     
     
     # Clears all and any violations of any player after X amount of time : linked with clearAllViolationsTimerNum
@@ -63,10 +65,11 @@ flag-system:
     clearAllViolationsTimer: true
 
     # Timer for when to clear any violations after X amount of time | time is in seconds : linked with clearAllViolationsTimer
-    clearAllViolationsTimerNum: 3600.0
+    clearAllViolationsTimerNum: 1800.0
     
     # Enable warning the flagged player for cheating (default: false)
     warnFlaggedPlayer: false
+    
     # Enable auto ban. It will automatically ban players (default: false)
     enableAutoBan:
     
@@ -84,7 +87,7 @@ flag-system:
         numPlayerKickUntilBan: 5.0
         
         # Automatic ban time towards flagged players - Time is in hours
-        autoBanTime: 720.0
+        autoBanTime: 720
         
     # Option to disable all checks in certain worlds - NOTE DO NOT REMOVE THE FIRST WORLD: linked with all checks
     blacklisted-worlds:
@@ -93,14 +96,14 @@ flag-system:
 thresholders:
 
     # just for regen and timer check and stuff and stuff
-    irregularEventCountLow: 3000.0
-    irregularEventCountMedium: 2900.0
-    irregularEventCountHigh: 2800.0
+    irregularEventCountLow: 3000
+    irregularEventCountMedium: 2900
+    irregularEventCountHigh: 2800
     
     # flag the check as "low" "medium" or "high" meaning if the player just barely flagged the check and so far
-    roundedThresholdLow: 1.0
-    roundedThresholdMedium: 2.0
-    roundedThresholdHigh: 3.0
+    roundedThresholdLow: 1
+    roundedThresholdMedium: 2
+    roundedThresholdHigh: 3
     
     high-string: "&4high"
     low-string: "&alow"
@@ -110,14 +113,15 @@ thresholders:
 spacedViolationMessages:
     # It sends a message to players with sac.notify each X amount of violations
     # If disabled, it will message players with sac.notify for each violation 
-    spacedViolationMessages: false
+    spacedViolationMessages: true
     
     # The number of messages occuring, every X amount of violations then send a message to all 
-    spacedViolationNotificationsNum: 4.0
+    spacedViolationNotificationsNum: 8.0
 
 # This are the GUI commands when you open it in game
 # You can adjust display glasses name and time in GUI
 # if usage is set to true, then it will use 'usage' command instead of SAC's tempban system
+
 GUI:
   Admin:
      GUIName: 'SAC Configuration Menu'
@@ -128,30 +132,29 @@ GUI:
   Ban:
     FirstTime:
       DisplayName: 1D
-      Time: 24.0
+      Time: 24
       useUsage: false
       usage: 'ban {player}'
     SecondTime:
       DisplayName: 3D
-      Time: 72.0
+      Time: 72
       useUsage: false
       usage: 'ban {player}'
     ThirdTime:
       DisplayName: 7D
-      Time: 168.0
+      Time: 168
       useUsage: false
       usage: 'ban {player}'
     FourthTime:
       DisplayName: 30D
-      Time: 720.0
+      Time: 720
       useUsage: false
       usage: 'ban {player}'
     FifthTime:
       DisplayName: PERM
-      Time: 10000000.0
+      Time: 10000000
       useUsage: false
       usage: 'ban {player}'
-    
 
 # All messages
 messages:
@@ -425,7 +428,7 @@ item-attribute:
    # they will have their speed limits increased 
    # to stop falses
    # even if they don't have a item attribute on them
-   counter: 7.0
+   counter: 7
    
    
 # All Movement Checks
@@ -443,10 +446,10 @@ movement:
         # The max speed a player go be while above a block : linked with bHop
         speedCheckMidAirA: 3.9
 
-        # The amount of times a player is flagged for speedCheckMidAirA before sending a violation : linked with bHop
+        # The amount of times a player is flagged before getting flagged for bHop : linked with bHop
         BhopUntilHackingA: 3.0
 
-        # The amount of times a player is flagged for speedCheckbHopAlternativeB before sending a violation : linked with bHop
+        #The amount of times a player is flagged before getting flagged for bHop alternative : linked with bHop
         BhopUntilHackingAlternativeB: 3.0
         
         # The max speed a player go be while above a block : linked with bHop
@@ -459,11 +462,11 @@ movement:
         checkFastLadder: true
         
         # How long the player is on ladders until checking for fastLadder : linked with fastClimb check
-        numUntilCheckingFastClimbA: 10.0
+        numUntilCheckingFastClimbA: 11.0
         
         # The max speed a player can go while going up ladders, water, lava and vines : Linked with fastClimb check
-        speedMaxClimbingA: 2.7
-
+        speedMaxClimbingA: 2.9
+        
     # Check semi prediction and stuff
     checkSemiPred:
 
@@ -471,11 +474,11 @@ movement:
         
         semiPredYUntilFlagA: 2.0
         
-        semiPredYLimiterA: 1.0
+        semiPredYLimiterA: 2.5
         
         checkSemiPredB: true
         
-        semiPredYUntilFlagB: 3.0
+        semiPredYUntilFlagB: 2.0
         
         semiPredYLimiterB: 2.0
         
@@ -486,13 +489,13 @@ movement:
         checkFly: true
         
         # How many jumps a player takes in mid-air until hacking : linked with flight check
-        inAirJumpUntilHackingA: 4.0
+        inAirJumpUntilHackingA: 6.0
 
         # How long the player is in the air until checking for jumps : linked with flight check
-        inAirUntilCheckJumpB: 2.0
+        inAirUntilCheckJumpB: 3.0
 
         # How long a player is going up in air until hacking : linked with flight check
-        inAirUpwardUntilHackingB: 11.0
+        inAirUpwardUntilHackingB: 15.0
         
         # How many times a player is going down with levitiation before hacking : linked with flight check
         levitationDownUntilHackingC: 25.0
@@ -522,10 +525,10 @@ movement:
         checkNoFall: true
     
         # The height in blocks, a player can fall before checking for noFall : linked with noFall check
-        noFallBlockHeightA: 5.0
+        noFallBlockHeightA: 6.0
 
         # How long until the player has hit the ground, check for noFall (in ticks) : linked with noFall
-        noFallTimerA: 6.0
+        noFallTimerA: 7.0
 
     # Glide
     checkGlide:
@@ -540,10 +543,9 @@ movement:
         glideUntilHackingA: 5.0
         
         # This is pretty much a flight check, if the player goes suddenly slow mid-air
-        speedMinimumWhenDescendingB: 1.4
+        speedMinimumWhenDescendingB: 1.3
         
-        # consecutive flags of speedMinimumWhenDescendingB until flagging
-        glideUntilHackingB: 4.0
+        glideUntilHackingB: 5.0
 
 
     checkElytraFlight:
@@ -555,8 +557,8 @@ movement:
        # aka, packets sent while the player is flying
        elytraFlightUntilHacking: 180
        
-       # If the player has the same Y axis for X amount of packets and speed is lower than elytraFlightSpeedMinB
-       elytraFlightLimitB: 4.0
+       # If the player has the same Y axis while not moving then flag player
+       elytraFlightLimitB: 10
        
        elytraFlightSpeedMinB: 1.0
        
@@ -566,10 +568,10 @@ movement:
         checkSpeed: true
         
         # When a user has the speed affect, increase all speed thresholds by x every speed level
-        speedAmplifierThreshold: 0.6
+        speedAmplifierThreshold: 0.7
         
         # When a user has the jump affect, increase all speed thresholds by x every jump level
-        jumpAmplifierThreshold: 1.0
+        jumpAmplifierThreshold: 1.1
 
         # The max speed a player is in the air when Y coords are the same : linked with speed check
         speedCheckWhenInAirAlternativeA: 6.0
@@ -578,25 +580,25 @@ movement:
         speedCheckWhenInAirAlternativeNumA: 5.0
         
         # The max speed of a player under a block : linked with speed check
-        speedMaxUnderBlockB: 6.0
+        speedMaxUnderBlockB: 6.5
 
-        # The max speed a player can go in the air, the max is 60 : Linked with speed check
-        speedMaxInAirC: 60.0
+        # The max speed a player can go in the air, the max is 40 : Linked with speed check
+        speedMaxInAirC: 65.0
 
         # The max speed a player can go when in a vehicle (Exceptions=boat): Linked with speed check
-        speedMaxInVehicleD: 20.0
+        speedMaxInVehicleD: 23.0
 
-        # Speed limit when the player is on a block : Linked with speed check
-        speedMaxOnGroundE: 6.5
+        # Speed limit when the player is on a block : lol nice
+        speedMaxOnGroundE: 6.9
 
         # The max speed a player can go when on ice : Linked with speed check
-        speedMaxOnIceF: 20.0
+        speedMaxOnIceF: 21.0
 
         # The max speed a player can go when on ice : Linked with speed check
         speedMaxInWaterG: 10.0
 
         # The max speed a player can ascend : Linked with speed check
-        speedMaxWhenAscendingH: 9.0
+        speedMaxWhenAscendingH: 10.0
 
         # The max speed a player can descend : Linked with speed check
         speedMaxWhenDescendingI: 40.0
@@ -608,32 +610,32 @@ movement:
         speedMaxInWaterNumK: 4.0
         
         # The max speed a player can go XZ : linked with speed check
-        speedMaxXZL: 3.7
+        speedMaxXZL: 3.76
         
         # The max speed on a block : linked with speed check
-        speedMaxOnBlockM: 7.8
+        speedMaxOnBlockM: 7.9
         
         # The amount of flags that needs to occur consistently to flag the player : linked with speed check
         speedMaxXZMaxL: 2.0
         
         # Max speed going up
-        speedMaxYN: 5.11
+        speedMaxYN: 6.0
         
         # Max speed with an elytra
         maxSpeedElytra: 40.0
         
         # Max speed going up until flagging
-        speedMaxYNFlag: 1.0
+        speedMaxYNFlag: 2
         
         # How long the player is on slime until checking for speed : linked with speed check
         onSlimeTillCheckSpeed: 3.0
         
         # Max speed when in a boat when near ICE, otherwise speed (D) will check
-        maxSpeedBoatP: 33.0
+        maxSpeedBoatP: 33
         
         # Max speed when near WATER otherwise speed (D) will check
-        maxSpeedBoatQ: 13.0
-
+        maxSpeedBoatQ: 16.0
+        
     # Spider Check
     checkSpider:
     
@@ -641,7 +643,7 @@ movement:
         checkSpider: true
         
         # How long a player can be going up before hacking : linked with spiderCheck
-        spiderUpUntilHackingA: 8.0
+        spiderUpUntilHackingA: 7.0
 
         # How long a player can be going up before hacking : linked with spiderCheck
         spiderUpUntilHackingAlternativeB: 3.0
@@ -651,7 +653,7 @@ movement:
         checkIrrMovement: false
         
         # Logs the coords of the first and last packet
-        irrMovementPacketSamples: 5.0
+        irrMovementPacketSamples: 5
         
         # Max distance between both packets
         irrMaxDistance: 4.5
@@ -659,9 +661,7 @@ movement:
         # if first packet and last packet coords are X blocks within eachother then check distance
         irrYAxisIgnore: 0.1
         
-        
-        # same as the variables above
-        irrMovementPacketSamplesB: 23.0
+        irrMovementPacketSamplesB: 23
         
         irrMaxDistanceB: 11.0
         
@@ -676,7 +676,7 @@ movement:
        speedMaxA: 7.0
        
        # Max speed for B
-       speedMaxB: 4.3
+       speedMaxB: 4.2
        
        # consecutive flags for B until a violation 
        limiterB: 2.0
@@ -688,13 +688,13 @@ movement:
        checkMedianSpeed: true
        
        # sample X amount of packets
-       sample: 20.0
+       sample: 20
        
        # position of first packet and postion of last packet, if the Y is less than X, ignore
        axisYIgnore: 2.5
        
        # max speed distance
-       maxMedianSpeed: 5.0
+       maxMedianSpeed: 5.5
        
        
     # Check for step
@@ -719,13 +719,13 @@ movement:
         noSlowDownCheck: true
     
         # The max speed a player can go when crouching : Linked with noSlowDown check:
-        speedCheckWhenCrouchingA: 2.5
+        speedCheckWhenCrouchingA: 2.9
         
         # The amount of times a player is flagged in a slowable block (cobweb or sweet berry bush) : linked with noSlowDown check
         inSlowableBlockUntilCheckB: 3.0
         
         # The max speed a player can go when in webs, and sweetberry bushes : Linked with noSlowDown check
-        noSlowDownSpeedNumB: 1.8
+        noSlowDownSpeedNumB: 1.9
         
         # How long the player is shifting until checking for noSlowDown : linked with noSlowDown check
         shiftUntilCheckingNoSlowA: 5.0
@@ -737,7 +737,7 @@ movement:
         noSlowDownDMaxSpeed: 2.1
         
         # Consistent flags of noSlowDownDMaxSpeed until actually flagging
-        noSlowDownDUntilCheat: 18.0
+        noSlowDownDUntilCheat: 18
 
     # Fluid Walk
     checkWalkOnFluid:
@@ -746,16 +746,16 @@ movement:
         checkWalkOnFluid: true
         
         # How long the player is standing above water until flagging : linked with fluidWalk check
-        fluidWalkUntilHackingAlternativeA: 7.0
+        fluidWalkUntilHackingAlternativeA: 8.0
 
         # How long the player is above water until hacking : linked with fluidWalk check
-        fluidJumpsOnWaterUntilHackingB: 4.0
+        fluidJumpsOnWaterUntilHackingB: 6.0
 
         # How fast the player is going above water to be flagged : linked with fluidWalk check
         fluidWalkIrregularSpeedB: 1.5
 
         # How long the player is standing above water until flagging : linked with fluidWalk check
-        fluidWalkUntilHackingC: 3.0
+        fluidWalkUntilHackingC: 5.0
       
         # Enable fluidWalk D, there are no options for this one as it is hardcoded, the only thing you can change if its enabled or not
         fluidWalkDCheck: true
@@ -772,7 +772,7 @@ combat:
         smartCombatMovementChange: true
         
         # Timer to adjust when a player is out of combat (20 = 1 second): linked with all movement checks 
-        smartCombatMovementChangeTimer: 60.0
+        smartCombatMovementChangeTimer: 70.0
 
         # increase all movement value threshold flag limits by X: linked with all movement checks 
         smartCombatMovementChangeNumber: 10.0
@@ -822,13 +822,13 @@ combat:
         checkKillAuraC: true
         
         # radius for killAuraC
-        killAuraCFind: 1.6
+        killAuraCFind: 1.2
         
         checkKillAuraD: false
         
         killAuraDMaxDis: 1.0
         
-        killAuraDUntilFlag: 2.0
+        killAuraDUntilFlag: 3.0
         
         checkKillAuraE: true
         
@@ -841,9 +841,7 @@ combat:
         checkReach: true
         
         # Entity reach max limit : Linked with entity reach check
-        checkReachNumA: 4.7
-
-        checkReachNumAPingIncrease: true
+        checkReachNumA: 4.8
 
         reachNumAPingIncrease: 0.2
         
@@ -862,6 +860,9 @@ timer-checks:
     
         # Check for irregularMoveEvents
         checkIrregularEvent: true
+        
+        # The number of events occuring in the time limit irregularCheckNumTimer 
+        irregularCheckNumUntilHackingA: 20.0
 
         # Gets the player packet count movement count, once reaching this number it samples the time it has taken from the first
         # and the last packet that was recieved : linked with irregularEventCount check
@@ -869,7 +870,7 @@ timer-checks:
         
         # Gets the time taken between the first and last packet of irregularNumSampleNum, 
         # if the time between the two packets is lower than this number then flag (In miliseconds) : linked with irregularEventCount
-        irregularTimeCountA: 3150.0
+        irregularTimeCountA: 3000.0
         
         # Gets the player packet count movement count, once reaching this number it samples the time it has taken from the first
         # and the last packet that was recieved : linked with irregularEventCount check
@@ -914,7 +915,7 @@ interaction:
         autoClickerBLimit: 10.0
         
         # approx ms between the before click time and current click time allowed, and increase autoClickeBLimit for the player by 1 else set back to 0
-        autoClickerBms: 6
+        autoClickerBms: 6.0
         
     # Check for reach break
     checkReachBlockBreak:
@@ -934,7 +935,7 @@ interaction:
         # If player places a block farther than this number, flag player : linked with reach place check
         reachBlockPlaceNumA: 7.0
         
-    # check for ghost ghost, if the player interacts with a block through a solid block
+    # check for ghost hand    
     checkGhostHand: false
     
     # check if player is placing blocks mid-air
@@ -945,17 +946,18 @@ other:
     # Enables the API
     enableAPI: false
     
+    
     # Specifies the config type
-    config-type: 'nevergonnagiveyouup'
+    config-type: 'idksomething'
     
     # When a report gets submitted, message all online admins
     enableReportBroadcastToAdmins: true
     
     # Disable anti cheat for player for X amount of ticks , 20 = 1 second, upon teleporting (This is for stopping falses upon teleportation)
-    disableAntiCheatXTime: 170.0
+    disableAntiCheatXTime: 170
     
     # When hit by the ender dragon, disable the AC for X amount of time, 20 = 1 second
-    disableACEnderDragon: 150.0
+    disableACEnderDragon: 160
     
     # Display PacketPlayInCustomPayload when a player joins
     enableModifiedClientBroadcast: false
@@ -970,56 +972,56 @@ other:
        
        # -----------------------------
        # samples the amount of packets into an array, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       packetSamples: 6.0
+       packetSamples: 6
        
        # until the player gets flagged for cheating (globally, is not consecutive), Not so important but if you set it too high it
        # becomes useless
        # USUALLY THIS NUMBER YOU WOULD WANT TO CHANGE IF NEEDED
-       baritoneFlag: 2.0
+       baritoneFlag: 2
        
        # higher num = more insensitive, THIS IS AN EXTREMELY IMPORTANT NUMBER, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       baritoneLoopThreshold: 3.0
+       baritoneLoopThreshold: 3
        
        # highernum = more insensitive, logs speed, THIS IS AN EXTREMELY IMPORTANT NUMBER, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       substringNum: 4.0
+       substringNum: 4
        
        # min flag count       
-       minFlagCount: 6.0
+       minFlagCount: 6
        
        # -----------------------------
        
        # samples the amount of packets into an array, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       packetSamplesB: 5.0
+       packetSamplesB: 5
        
        # until the player gets flagged for cheating (globally, is not consecutive), Not so important but if you set it too high it
        # becomes useless
        # USUALLY THIS NUMBER YOU WOULD WANT TO CHANGE IF NEEDED, NOTHING ELSE
-       baritoneFlagB: 2.0
+       baritoneFlagB: 4
        
        # higher num = more insensitive, THIS IS AN EXTREMELY IMPORTANT NUMBER, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       baritoneLoopThresholdB: 1.0
+       baritoneLoopThresholdB: 1
        
        # highernum = more insensitive, logs speed, THIS IS AN EXTREMELY IMPORTANT NUMBER, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       substringNumB: 5.0
+       substringNumB: 5
        
-       minFlagCountB: 3.0
+       minFlagCountB: 3
        # -----------------------------
        
        # samples the amount of packets into an array, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       packetSamplesC: 5.0
+       packetSamplesC: 5
  
        # until the player gets flagged for cheating (globally, is not consecutive), Not so important but if you set it too high it
        # becomes useless
        # USUALLY THIS NUMBER YOU WOULD WANT TO CHANGE IF NEEDED
-       baritoneFlagC: 1.0
+       baritoneFlagC: 1
        
        # higher num = more insensitive, THIS IS AN EXTREMELY IMPORTANT NUMBER, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       baritoneLoopThresholdC: 5.0
+       baritoneLoopThresholdC: 5
        
        # highernum = more insensitive, logs speed, THIS IS AN EXTREMELY IMPORTANT NUMBER, ONLY CHANGE BY A FEW INTEGERS IF REQUIRED
-       substringNumC: 6.0
+       substringNumC: 6
        
-       minFlagCountC: 6.0
+       minFlagCountC: 6
        
        # -----------------
        # Optional Best Baritone Configuration, however does false in certain situations
@@ -1030,7 +1032,7 @@ other:
        # 5
        # and turning allowedBlockTillFlagNum to 0
        # -----------------
-       baritoneReset: 50.0
+       baritoneReset: 50
       
        # This is a secondary checker for A, B and C internally, its meant to limit falses if a player is acting like a bot
        # To enable this check, increase the value by X, 0 means don't check for secondary 
@@ -1038,7 +1040,7 @@ other:
        # making this number higher than 7 makes it useless, making it higher than 3 may as well make it useless depending on doubleBlockNum
        # default is 0
        # turn to 1 to enable secondary internal checking
-       allowedBlockTillFlagNum: 0.0
+       allowedBlockTillFlagNum: 0
        
        # Part of the secondary limit internal check for A, B and C
        doubleBlockNum: 0.5
@@ -1050,7 +1052,7 @@ other:
        checkGroundSpoof: true
        
        # The number of flags consistently until flagging for groundSpoof, note keep this number above 2.0 to stop falses occuring
-       checkGroundNumA: 4.0
+       checkGroundNumA: 7.0
 
     # Check for ping spoofing
     checkPingSpoofing:
@@ -1067,10 +1069,10 @@ other:
        checkNuker: true
        
        # Max amount of miliseconds between the first and last dig packet sent
-       maxMili: 400.0
+       maxMili: 400
        
        # sample X amout of packets
-       sample: 20.0
+       sample: 20
        
        
     # Check for player lag. If false, then ignores players ping regardless, and still continues checking players actions
@@ -1086,7 +1088,7 @@ other:
     checkServerTPS:
     
         # Check For Server TPS
-        checkServerTPS: false
+        checkServerTPS: true
 
         # If the servers TPS is lower than number, ignore all abnormal activity : linked with checkServerTPS
         serverTPSTillIgnore: 18.0
@@ -1096,13 +1098,17 @@ other:
         invertTPS: false
             
     
-    # please do not enable this feature I was too lazy to actually remove it
-    # use the sacaddons plugin to use movement replays etc
+    # Enable movement replay
+    # this is an EXTREMELY resource demanding feature, please use it wisely
+    # this config options allows you to "replay" a players movements and nearby blocks inside a website
+    # please note that this does not include actual textures of the blocks
+    # that the plugin will create when a certain command is typed
+    # The website or webpage will be made inside the "output" folder in the SAC folder where the "Replayer" folder is
+    # THIS IS AN EXTREMELY BETA FEATURE MEANING BUGS MAY OCCUR AND SOME FEATURES OF IT MAY BE BAREBONE
     enableMovementReplay: false
     
-    
     # Ignore abnormal activites with 0 ping
-    ignoreZeroPing: false
+    ignoreZeroPing: true
     
     # Debug mode is when a violation occurs, and the check that is violated will display the configuration variable
     # that the player exceeded in chat, note that it messages every player what configuration variable

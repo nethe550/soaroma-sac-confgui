@@ -45,6 +45,7 @@ code {
     margin: var(--editor-section-margin);
 
     width: var(--editor-section-width);
+    min-width: 400px;
 
     border-radius: 6px;
 

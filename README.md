@@ -1,11 +1,11 @@
 # Soaroma SAC Configuration Editor
 A graphical configuration editor for the Soaroma SAC Minecraft anti-cheat plugin.
 
-***This project is still in early beta, expect a few bugs!***
+***This project is still in early beta, expect a few bugs and missing features!***
 
 ### Current Versions:
 - SAC: `1.0.38`
-- Editor: `0.0.1`
+- Editor: `0.0.2`
 
 ## Usage
 To start editing configurations, simply download this repository and open the `index.html` file in your browser of choice. Then, either pick a default configuration on the sidebar, or upload your own to begin editing.

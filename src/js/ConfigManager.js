@@ -83,7 +83,7 @@ class ConfigManager {
         if (this.buttons['export']) this.buttons.export.addEventListener('click', this.exportConfig.bind(this));
 
         // register default config buttons
-        for (let button of ['recommended', 'default', 'sensitive', 'insensitive', 'auto-insensitive', 'gameratbeast9']) {
+        for (let button of ['recommended', 'default', 'sensitive', 'insensitive', 'auto-insensitive', 'gameratbest9', 'main', 'movement']) {
 
             let el = document.getElementById(`${button}-config`);
 

@@ -118,14 +118,17 @@ a:visited {
 
     background: var(--header-background);
 
-    width: calc(100vw - var(--header-padding) * 2);
-    height: var(--header-rel-height);
+    /* width: calc(100vw - var(--header-padding) * 2); */
+    width: 100%;
+    /* height: var(--header-rel-height); */
 
     padding: var(--header-padding);
     margin: 0;
     border-bottom: var(--border);
 
-    position: fixed;
+    box-sizing: border-box;
+
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 999;

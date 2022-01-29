@@ -1,7 +1,7 @@
 # ********************************************** #
 #                                                #
 #    -- SoaromaSAC Configuration File --         #
-#           -- Version 1.0.38 --                 #
+#           -- Version 1.0.39 --                 #
 #                                                #
 # ********************************************** #
 
@@ -334,6 +334,16 @@ messages:
         - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - Similar to the sensitive config it is made to catch cheaters faster'
         - '#13cc6d/&lSAC&8 &8&l»#27eb86/ Cons: '
         - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - The chances of falses happening are highly likely / not suitable for high ping environments'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/ &2Movement Configuration ID = 7'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/ Pros: '
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - This config is meant for passive servers'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - All movement configuration is default config'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - Some options in config are turned on to reduce falses'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - Violation clearing timer is set to 1 minute'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - Chances of a player getting falsely kicked is massively reduced'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/ Cons: '
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - Disables all combat checks'
+        - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - Disables 1 auto clicker check'
         - '#13cc6d/&lSAC&8 &8&l»#27eb86/ -----'
         - '#13cc6d/&lSAC&8 &8&l»#27eb86/ &2Extra Information Needed'
         - '#13cc6d/&lSAC&8 &8&l»#27eb86/   - TPS checking is not set to true in any of the pre-configured configurations except recommended'
@@ -404,6 +414,7 @@ messages:
         - 'GhostHand'
         - 'Semi Prediction'
         - 'Auto Clicker'
+
                 
 item-attribute:
 
@@ -475,9 +486,9 @@ movement:
         
         checkSemiPredB: true
         
-        semiPredYUntilFlagB: 3.0
+        semiPredYUntilFlagB: 2.0
         
-        semiPredYLimiterB: 2.0
+        semiPredYLimiterB: 1.5
         
     # Check for flight
     checkFly:
@@ -828,11 +839,7 @@ combat:
         
         killAuraDMaxDis: 1.0
         
-        killAuraDUntilFlag: 2.0
-        
-        checkKillAuraE: true
-        
-        killAuraELimiter: 11.0
+        killAuraDUntilFlag: 3.0
         
     # Check for entity reach
     checkReach:
@@ -946,7 +953,7 @@ other:
     enableAPI: false
     
     # Specifies the config type
-    config-type: 'nevergonnagiveyouup'
+    config-type: 'none'
     
     # When a report gets submitted, message all online admins
     enableReportBroadcastToAdmins: true
@@ -959,6 +966,7 @@ other:
     
     # Display PacketPlayInCustomPayload when a player joins
     enableModifiedClientBroadcast: false
+    
     
     checkBaritone:
     
